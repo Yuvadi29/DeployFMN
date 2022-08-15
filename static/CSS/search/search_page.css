@@ -1,0 +1,340 @@
+
+.search-page-container{
+
+    /* background-image: url('../../media/images/search/books_wall.jpg'); */
+    /* background: #0F2027; 
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);  */
+
+
+    background: #00B4DB;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: 200%;
+
+    animation: moveBackground 10s infinite ease-in-out;
+
+    width: 100%;
+    height: 30vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+}
+@keyframes moveBackground{
+    0%{
+        background-position: 0;
+    }
+    50%{
+        background-position: 100%;
+    }
+    100%{
+        background-position: 0;
+
+    }
+}
+.search-page-container input{
+    height: 40px;
+    width: 60vw;
+    border: none;
+    background:white;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 0 20px;
+}
+.search-bttn {
+    height:40px;
+    min-width:40px;
+    width:3vw;
+    border:none;
+    background:white;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+}
+.report-bttn{
+    cursor: pointer;
+}
+@media (max-width: 1200px) and (min-width: 768px){
+    .search-page-container input{
+        width: 70vw;
+    }
+    .search-page-container{
+        height: 25vh;
+    }
+}
+
+@media (max-width: 768px) and (min-width:576px){
+    .search-page-container input{
+        width: 80vw;
+    }
+    .search-page-container{
+        height: 20vh;
+    }
+}
+@media (max-width: 576px){
+
+    .search-page-container input{
+        width: 70vw;
+    }
+    .search-page-container{
+        height: 30vh;
+    }
+}
+
+
+
+.pdf-result-container{
+    padding: 3vh 1vw 1vh 1vw;
+}
+.pdf-result{
+    position: relative;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.115);
+    /* border: 0.5px solid black; */
+    border-radius: 3px;
+    padding: 1vh 1vw;
+    display:grid;
+    grid-template-columns: 5vw 70vw 20vw;
+    align-items: center;
+}
+.pdf-icon-container{
+    justify-self: center;
+}
+.fa-file-pdf-o{
+    color: rgb(67, 20, 20)    
+}
+.file-title{
+    font-size:25px;
+    color: black
+}
+.file-description{
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+.button-group{
+    display: flex;
+    white-space: nowrap;
+    justify-self: right;
+    padding: 0 2vw;
+    gap: 1vw;
+}
+button{
+    background-color:transparent;
+    border:transparent;
+    cursor: pointer;
+}
+.fa-floppy-o{
+    color: black
+}
+@media (max-width: 1200px) and (min-width: 768px){
+    .pdf-result{
+        grid-template-columns: 10vw 65vw 20vw;
+    }
+}
+@media (max-width: 768px){
+    .pdf-result{
+        width:100%;
+        grid-template-columns: 12vw 70vw 10vw;
+    }
+    .button-group{
+        display: flex;
+        white-space: nowrap;
+        justify-self: right;
+        flex-direction: column;
+        padding: 0;
+        gap: 0.2vw;
+    }
+}
+@media (max-width: 577px){
+    .pdf-result{
+        width:100%;
+        grid-template-columns: 15vw 60vw 15vw;
+    }
+}
+
+.card-wrapper{
+    padding: 1vh 1vw;
+}
+.card-container{
+    display: grid;
+    row-gap: 5vh;
+    column-gap: 1vw;
+    grid-template-columns: auto auto auto auto;
+    justify-items: center;
+    padding:5vh 1vw;
+}
+
+.img-card{
+    padding:1vh 1vw;
+    /* border: 0.5px solid var(--color-1); */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.078);
+    border-radius: 3px;
+    background-color: white;
+    width:22vw;
+    transition: 0.3s;
+}
+.img-card:hover{
+    transform: scale(1.12);
+}
+.img-card-1-row{
+    display: flex;
+
+    align-items:center;
+    height: 50px;
+    width: 100%;
+}
+.img-card-1-row .title-div{
+    width:70%;
+    justify-self: left;
+}
+.img-card-1-row>.button-div{
+    display:flex;
+    margin-left: auto;
+    padding: 0 1vw;
+    gap: 0.4vw;
+}
+.img-card .file-description{
+    width: 100%;
+}
+.img-card .img-content{
+    text-align: center;
+}
+.img-card img {
+    border-radius: 5px 5px 0 0;
+    object-fit: cover;
+    width:20vw;
+    height: 300px;
+}
+.card-flex-row{
+    display: flex;  
+}
+.card-flex-dir-right{
+    margin-left:auto;
+}
+.fa-heart{
+    color: red;
+}
+
+
+@media (max-width: 1200px) and (min-width: 768px){
+    .card-container{
+        grid-template-columns: auto auto auto;
+    }
+    .img-card{
+        width:30vw;
+    }
+    .img-card img {
+        width:27vw
+    }
+    .img-card-1-row>.button-div{
+        gap: 1vw;
+    }
+    .img-card:hover{
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px){
+    .card-container{
+        grid-template-columns: auto auto;
+    }
+    .img-card{
+        width:45vw;
+    }
+    .img-card img {
+        width:42vw
+    }
+    .img-card-1-row>.button-div{
+        gap: 1vw;
+    }
+    .img-card:hover{
+        transform: scale(1);
+    }
+}
+@media (max-width: 577px){
+    .card-container{
+        grid-template-columns: auto;
+    }
+    .img-card{
+        width:85vw;
+    }
+    .img-card img {
+        width:80vw
+    }
+    .img-card-1-row>.button-div{
+        gap: 1vw;
+    }
+    .img-card:hover{
+        transform: scale(1);
+    }
+}
+
+.report-form-overlay{
+    position:fixed;
+    top: 0;
+    width:100vw;
+    height:100vh;
+    z-index: 999;
+    display: none;
+    background-color:rgba(0, 0, 0, 0.536)
+}
+.report-form-wrapper{
+    display:flex;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+}
+
+.report-form-containter{
+    margin: auto;
+    background-color: white;
+    border-radius: 3px;
+    padding: 2vh 2vw;
+    max-width: 90%;
+}
+.hide-form-button {
+    text-align: right;
+}
+.hide-form-button button{
+    cursor: pointer;
+    background-color: transparent;
+    border: transparent;
+}
+.report-form-input-div{
+    padding:1vh 0;
+}
+.report-form-input-div select{
+    height:40px;
+    padding: 0 1vw;
+}
+.report-form-input-div textarea{
+    height: 150px;
+    resize: none;
+}
+.report-inputs{
+    min-width: 40vw;
+    width: 100%;
+    border-radius: 3px;
+}
+
+@media (max-width: 1200px){
+    
+    .report-form-containter{
+        padding: 4vh 4vw;
+    }
+
+    .report-inputs{
+        min-width: 50vw;
+    }
+
+}
+
+
+/* Hide search box from nav bar */
+nav .search-box input, nav .search-box .search-icon-container{
+    display: none !important;
+}

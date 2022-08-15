@@ -1,0 +1,182 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block style-links %}
+
+    <link rel="stylesheet" href="{% static 'CSS/other/about/about.css' %}" type="text/css">
+
+{% endblock style-links %}
+   
+
+
+{% block  content %}
+             
+
+ <!-- section 1 - AboutUs summary  -->
+ <div class="new-section section-1">
+    <div class="section-head">
+        <h2>About Us</h2>
+    </div>
+    <div class="section-grid-2">
+        <div class="section-left">
+            <img class="section-image" src="{% static 'media/svg/other/about/about_main.svg' %}" alt="" >
+        </div>
+        <div class="section-right section-grid-text">
+            <div class="section-content">
+                <p>
+                    Because your planning is not always perfect, you need to be able to study 
+                    whenever, wherever. Just read your notes one last time on your tablet or 
+                    phone while you're on the go. <br><br>
+                    <ul class="pl-3px">
+                        <li>The next era of online learning begins today! Visit our Help Center.</li>
+                        <li>Take the first step toward a successful career. </li>
+                        <li>Structure Effective study material is structured study material. </li>
+                    </ul>
+
+                </p><br/>
+                <button class="simple-bttn learn-more-bttn"><a href="#section-3">Learn More</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Section 2 - Why Us -->
+<div class="new-section section-2">
+        <div class="section-head">
+            <h2>Why Us?</h2>
+        </div>
+        <div class="section-grid-2">
+            <div class="section-left section-grid-text">
+                <div class="section-content">
+                    <p>
+                        "FIND MY NOTES" is a Smarter Study Platform that brings the right 
+                        and smart Techniques, principles and study resources to get studies done. From 
+                        Droppers to Toppers. 
+                        The Best Study material shared by your fellow Students, Organized in one place. 
+                        You can still have your study materials and prepare for your Semester via our 
+                        Brand new App
+                    </p>
+                </div>
+            </div>
+            <div class="section-right">
+                <img class="section-image" src="{% static 'media/svg/other/about/purpose_main.svg' %}" alt="" >
+            </div>
+        </div>
+</div>
+
+<!-- Section 3 - mission and vision -->
+
+<div class="new-section section-3" id="section-3">
+        <div class="section-head">
+            <h2>Mission & Vision</h2>
+        </div>
+        <div class="section-grid-2">
+            <div class="section-left">
+                <img class="section-image" src="{% static 'media/svg/other/about/mobile_learning.svg' %}" alt="" >
+            </div>
+            <div class="section-right section-grid-text">
+                <div class="section-content mission-vision-text">
+
+                    <div class="vision">
+                        <div>
+                            <h2>
+                                <span  class="section-icon"><i class="fa fa-eye"></i></span> Our Vision
+                            </h2>
+                        </div>
+                        <div class="">
+                            As a mission-driven organization, we're relentlessly pursuing our vision of a world 
+                            where every learner can access education to unlock their potential, without the 
+                            barriers of cost or location
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="mission">
+                        <div>
+                            <h2><span  class="section-icon"><i class="fa fa-bullseye"></i></span> Our Mission</h2>
+                        </div>
+                        <div class="">
+                            Our mission is to provide a comprehensive, easy-to-use, Notes and Study material 
+                            and full-text database of education research and information for educators, 
+                            researchers, and the fellow students.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+<!-- Section 4 - Our Team -->
+
+<div class="section-4 new-section">
+    <div class="section-head">
+        <h2>Our Team</h2>
+    </div>
+    
+    <div class="profile-cards">
+
+        
+        <div class="card">
+            <div class="card-img">
+                <img src="{% static 'media/images/other/about/profile.jpg' %}" alt="" width="300px">
+            </div>
+            <div class="person-name card-text">
+                <h3>Rishabh Nahar</h3>
+            </div>
+            <div class="card-text card-sub-text">
+                <p>UI, Backend</p>
+            </div>
+            <div>
+                <button class="simple-bttn-2 card-bttn">Show Profile</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-img">
+                <img src="{% static 'media/images/other/about/profile.jpg' %}" alt="" width="300px">
+            </div>
+            <div class="person-name card-text">
+                <h3>Rishabh Nahar</h3>
+            </div>
+            <div class="card-text card-sub-text">
+                <p>UI, Backend</p>
+            </div>
+            <div>
+                <button class="simple-bttn-2 card-bttn">Show Profile</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img">
+                <img src="{% static 'media/images/other/about/profile.jpg' %}" alt="" width="300px">
+            </div>
+            <div class="person-name card-text">
+                <h3>Rishabh Nahar</h3>
+            </div>
+            <div class="card-text card-sub-text">
+                <p>UI, Backend</p>
+            </div>
+            <div>
+                <button class="simple-bttn-2 card-bttn">Show Profile</button>
+            </div>
+        </div>
+
+        <div class="show-all-div  show-all-team">
+            <!-- <a class="simple-bttn-2 .col-white" href="">Show all &nbsp;<i class="fa fa-arrow-right"></a> -->
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+
+{% endblock scripts %}   

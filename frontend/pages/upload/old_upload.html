@@ -1,0 +1,74 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block style-links %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/upload/upload.css' %}?" %}>
+
+{% endblock style-links %}
+   
+{% block  content %}
+             
+     <div class="upload-form-wrapper flex">
+         <div class="upload-form-container">
+             <div class="head-text text-center">
+                 <h2>Upload your notes</h2>
+             </div>
+             <div class="upload-form">
+                 <form action="" method="POST" enctype="multipart/form-data">
+                     {% csrf_token %}
+                     
+                     <input type="text" name="" id="" placeholder="Title" name="title">
+
+                     <textarea name="" id="" cols="30" rows="10" placeholder="Description" name="description"></textarea>
+
+                     <input type="text" name="" id="" placeholder="Tags" name="tags">
+
+
+                     <div class="browse-file-bttn-div">
+                         <i class="fa fa-upload"></i><br>
+
+                         <div class="hidden">
+                             <input accept=".pdf,.jpg,.png,.jpeg" id="file_to_upload" onchange="get_file_data()" type="file" name="file_data">
+                             <input type="hidden" name="file_type" id="file_type">
+                         </div>
+
+                         <a href="#" onclick="browse_file_bttn()">Browse File</a>
+                         <p><small id="file_name"></small></p>
+                       
+                         <p class="imp-field"><small>Accepted file type: .pdf, .jpg , .png</small></p>
+                         <script>
+                            function browse_file_bttn(){
+                                document.getElementById("file_to_upload").click();
+                            }
+                            function get_file_data(){
+
+                                var fileName = document.getElementById("file_to_upload").value;
+                                document.getElementById("file_name").innerHTML = fileName;
+
+                                extension = fileName.substring(fileName.lastIndexOf('.') + 1);
+                                let FileType;
+                                if(extension == 'jpg' || extension == "png" || extension == "jpeg" || extension == "jfif"){
+                                    FileType = "image"
+                                }
+                                if(extension == "pdf"){
+                                    FileType = "pdf"
+                                }
+                                document.querySelector('#file_type').value = FileType;
+
+                            }
+                        </script>
+                     </div>
+                     <input type="submit" class="simple-bttn-2" value="Upload">
+                 </form>
+             </div>
+         </div>
+     </div>
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+
+{% endblock scripts %}   

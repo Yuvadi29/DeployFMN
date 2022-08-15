@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/commonforall.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/components/navbar.css' %}" />
+
+   <!-- For social links - fontawesome symbols -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+       
+    </style>
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="col-1">
+            <a href="/" class="logo-anchor-link">
+                <img src="{% static 'media/svg/fmnlogo.svg'%}" alt="FindMyNotes" width="200px">
+            </a>
+        </div>
+        <div class="col-2">
+            <div class="col-2-elem nav-links">
+                <div class="nav-sub-menu"><a href="/">Home</a></div>
+                {% if current_user != None %}
+                <div class="nav-sub-menu"><a href="/search_page">Search</a></div>
+                <div class="nav-sub-menu"><a href="/upload_page">Upload</a></div>
+
+                <div class="nav-sub-menu"><a href="/">Profile</a></div>
+                {% endif %}
+                <div class="nav-sub-menu"><a href="/about">About</a></div>
+                <div class="nav-sub-menu"><a href="/contact">Contact</a></div>
+
+                <!-- display on mobile view -->
+                {% if current_user == None %}
+                <div class="nav-sub-menu show-on-mobile hide-on-desktop"><a href="loginpage">Login</a></div>
+                <div class="nav-sub-menu show-on-mobile hide-on-desktop "><a href="/signuppage">Signup</a></div>
+                {% endif %}
+                <div class="nav-sub-menu show-on-mobile hide-on-desktop "><a href="/admin">AdminPanel</a></div>
+
+
+            </div>
+        </div>
+        <div class="col-3">
+
+            <div class="hamburger-icon-bttn">
+
+                <!-- Hide on desktop view - hamburger icon -->
+                <button onclick="toggle_nav_links()" class=" hide-on-desktop show-on-mobile">
+                
+                    <i  class="fa fa-bars"></i>
+                </button>
+
+                <!-- display on desktop view -->
+                <div class="login-signup-container">
+                    {% if current_user == None %}
+                    <div class="nav-sub-menu show-on-desktop hide-on-mobile"><a href="/loginpage">Login</a></div>
+                    <div class="nav-sub-menu show-on-desktop hide-on-mobile "><a href="/signuppage">Signup</a></div>
+                    {% else %}
+                    <div class="nav-sub-menu show-on-desktop hide-on-mobile"><a href="/adminfeed">AdminPanel</a></div>
+                    <div class="nav-sub-menu show-on-desktop hide-on-mobile"><a href="/logout">Logout</a></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script>
+        function toggle_nav_links(){
+            var navlinks = document.querySelector(".col-2");
+            navlinks.classList.toggle("on-ham-icon-click");
+        }
+    </script>
+</body>
+</html> 

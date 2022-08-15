@@ -1,0 +1,115 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block style-links %}
+
+<link rel="stylesheet" href="{% static 'CSS/admin/user_report.css' %}">
+
+{% endblock style-links %}
+   
+
+
+{% block  content %}
+
+
+<body>
+    <div class="report-body">
+        <div class="search">
+            <form role="search" class="Search-box" id="form">
+                <input type="search" id="query" name="q" placeholder="Search..." aria-label="Search through site content">
+                <button>
+                    <svg viewBox="0 0 1024 1024">
+                        <path class="path1"
+                            d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z">
+                        </path>
+                    </svg>
+                </button>
+            </form>
+        </div>
+        <div class="report">
+            <div class="report-card">
+                <div class="card-name">
+                    <div class="name-card">
+                        <a class="text" href="#">Rakesh Ramchandra zore</a>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="./images/music-1.jpg" alt="">
+                </div>
+                <div class="icons">
+    
+                    <i class="fa fa-heart-o" id="favorite"></i>
+    
+                    <div class="separate-icons-1">
+                        <i class="fa fa-bookmark-o" id="comment"></i>&nbsp;
+                        <i class="fa fa-arrow-down"></i>
+                    </div>
+                </div>
+                <div class="details">
+                    <p class="like">Like by 20M user</p>
+                    <p class="upldby-name" id="tp">Machine-Learning through python</p>
+                    <div class="desc" id="desc">
+                        <p class="truncate-line-1" id="description">basically python is an ver intersting language and you will
+                            really love itbasically python is an ver intersting language and you will really love
+                            itbasically python is an ver intersting language and you will really love itbasically python is
+                            an ver intersting language and you will really love itbasically python is an ver intersting
+                            language and you will really love itbasically python is an ver intersting language and you will
+                            really love itbasically python is an ver intersting language and you will really love it
+                            dfudhfuhdufhduzk j</p>
+                        <i class="material-symbols-outlined descon" id="descon">more_horiz</i>
+                    </div>
+                    <p class="date">On 09/07/2022 at 3:00pm</p>
+                </div>
+                <div class="button">
+                    <input type="button" class="valid" value="Valid" style="width:48%;">
+                    <input type="button" class="invalid" value="Invalid" style="width:48%;">
+                </div>
+                <p class="reportuser">Reported by: <a href="#">Rishabh Nahar</a></p>
+                
+            </div>
+            
+        </div>
+     
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+
+<script>
+    let fav = document.querySelectorAll("#favorite")
+    let com = document.querySelectorAll("#comment")
+    let desc = document.querySelectorAll("#desc")
+    let description = document.querySelectorAll("#description")
+    let descon = document.querySelectorAll("#descon")
+    let tp = document.querySelectorAll("#tp")
+
+
+    for(let i=0; i< fav.length; i++){
+    fav[i].onclick = function () {
+        fav[i].classList.toggle("material-symbols-rounded");
+        fav[i].classList.toggle("fav");
+    }}
+
+    for(let i=0; i< com.length; i++){
+    com[i].onclick = function () {
+        com[i].classList.toggle("material-symbols-rounded");
+    }}
+
+    for(let i=0; i< descon.length; i++){
+    descon[i].onclick = function () {
+        if(descon[i].innerHTML=== "more_horiz"){
+            descon[i].innerHTML= "close";
+        }else{
+            descon[i].innerHTML= "more_horiz";
+        }
+        tp[i].classList.toggle('tp')
+        desc[i].classList.toggle('dfull')
+        description[i].classList.toggle('full')
+        description[i].classList.toggle('description')
+
+    }}
+</script>
+
+{% endblock scripts %}   

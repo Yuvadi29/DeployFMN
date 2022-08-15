@@ -1,0 +1,7 @@
+files
+backend/migrations
+backend/__pycache__
+FindMyNotes/env.py
+test
+dependencies
+.vscode

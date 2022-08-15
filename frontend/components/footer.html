@@ -1,0 +1,117 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'CSS/components/footer.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+    .footer{
+        background-color: var(--white);
+        color: var(--black);
+        font-family: Manrope;
+    }
+    .footer a{
+        color: var(--black);
+        text-decoration: none;
+    }
+    .footer-row-1{
+        display: grid;
+        grid-template-columns: 30% 30% 40%;
+        justify-items: center;
+        padding: 3% 0;
+    }
+    .footer-row-1-left h3{
+        font-size: 25px;
+    }
+    .footer-row-1-right div{
+            padding:1% 0%;
+            white-space: nowrap;
+        }
+    .footer-row-2{
+        background-color: rgb(32, 31, 31);
+        color: white;   
+        text-align: center;
+        font-size: smaller;
+        padding: 20px 0;
+    }
+   
+    @media screen and (max-width : 768px) {
+        .footer-row-1{
+            display:block;
+            padding: 5% 5% ;
+        }
+        .footer-row-1-left{
+            width:100%;
+            display: grid;
+            grid-template-columns: 90% 10%
+        }
+        .footer-row-1-right{
+            height: 0;
+            overflow: hidden;
+        }
+        .footer-row-1-left h3{
+            font-size: 20px;
+        }
+        .footer-row-1-right div{
+            padding:0% 3%;
+        }
+        .show-links{
+            height:100%;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="sec-about">
+                <h2>About Us</h2>
+                <p>Ever wanted to buy a book but could not because it was too expensive? worry not! because BookShark is
+                    here! BookShark is customer to customer platform for books. Sell and buy old & new books in India at
+                    the minimal prices ever seen anywhere .</p>
+                <ul class="sci">
+                    <li><a href="#" class="fa fa-link-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="fa-link-instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="fa-link-twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec-quicklinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/">FAQ</a></li>
+                    <li><a href="/contact">Help</a></li>
+                    <li><a href="/contact">Contact</a></li>
+
+                </ul>
+            </div>
+            <div class="sec-contact">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        <p><a href="tel:123323">+91 99999 99999</a></p>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                        <p><a href="mail:findmynotes2022@gmail.com">findmynotes2022@gmail</a></p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        function show_links(link_id){
+            document.getElementById(link_id).classList.toggle("show-links");
+        }
+    </script>
+</body>
+</html>

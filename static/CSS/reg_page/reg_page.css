@@ -1,0 +1,239 @@
+.main-body-container{
+  min-height: 105vh;
+  width: 100%;
+  height: 90vh;
+  background-image: url(../../media/images/loginAndsignup/LS.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container{
+  width: 75%;
+  background: #fff;
+  border-radius: 6px;
+  padding: 30px 20px 30px 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+.container .content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0px;
+}
+
+/* right-side */
+.container .content .right-side{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  position: relative;
+  margin: 0px 30px;
+}
+.right-side-text{
+  font-size: 12px;
+  color: #1a8ee0;
+  margin-bottom: 8px;
+}
+.content .right-side .social{
+  position: relative;
+  padding: 14px 0;
+}
+.content .right-side .social img{
+  position: absolute;
+  width: 16px;
+  top: 19px;
+  left: 18px;
+}
+.content .right-side .social input{
+  padding: 5px 20px 5px 40px;
+  color: #1a8de0;
+  background-color: #fff;
+  cursor: pointer;
+  border: 1px solid #1a8ee0;
+  font-weight: 500;
+  width: 230px;
+}
+
+
+
+
+/* center */
+.center-line{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.or{
+  border-radius: 50%;
+  font-size: 15px;
+  padding: 10px;
+  color: #1a8ee0;
+  background-color: white;
+  font-weight: bold;
+}
+.line{
+  width: 0.5px;
+  height: 525%;
+  background-color: #1a8de0cf;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+  
+}
+
+/* left */
+.container .content .left-side{
+  width: 50%;
+  margin: 0px 30px;
+}
+.content .left-side .topic-text{
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a8ee0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.left-side .middle-text{
+  display: flex;
+  justify-content: center;
+}
+.left-side .middle-text p,
+.left-side .middle-text a{
+  font-size: 14px;
+  padding:2px;
+  margin-top: 10px;
+  color: rgba(0, 0, 0, 0.566);
+
+}
+.left-side .middle-text a:hover{
+  color: #1a8ee0;
+}
+
+.left-side .input1{
+    height: 40px;
+    width: 100%;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+.left-side .input-box{
+  height: 40px;
+  width: 100%;
+  margin: 15px 0;
+}
+.left-side .input-box input,
+.left-side .input-box select,
+.left-side .input-box textarea{
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  border: 1px solid rgba(135, 135, 135, 0.122);
+  padding: 0 20px;
+  resize: none;
+}
+.left-side .input-box select {
+    color: rgb(111, 110, 110);
+}
+.left-side .input-box textarea{
+  padding-top: 12px;
+}
+.left-side .input-box .middle{
+  display: flex;
+  justify-content: space-between;
+}
+.left-side .input-box a,
+.left-side .input-box .show{
+  text-decoration: none;
+  font-size: 11px;
+  padding: 6px;
+  color: rgba(0, 0, 0, 0.739);
+}
+.left-side .input-box .check{
+  width: 10px;
+  position: relative;
+  top: 3px;
+}
+.left-side .button{
+  display: flex;
+  justify-content: center;
+  margin-top: 45px; 
+  height: 35px;
+}
+.left-side .button input[type="submit"]{
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: #0055ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+.button input[type="button"]:hover{
+  background:#0091ff;
+  box-shadow: rgba(0, 0, 0, 0.23) 0px 0px 6px;
+}
+@media (max-width: 950px) {
+  .container{
+    width: 80%;
+    padding: 30px 40px 40px 35px ;
+  }
+  .container .content .left-side{
+   width: 55%;
+
+}
+}
+@media (max-width: 768px) {
+  .container{
+    margin: 40px 0;
+    height: 100%;
+  }
+  .container .content{
+    flex-direction: column;
+  }
+ .container .content .right-side{
+   width: 100%;
+   /* flex-direction: column; */
+   margin-top: 30px;
+   justify-content: center;
+   flex-wrap: wrap;
+   margin-left: 0;
+   margin-right: 0;
+ }
+ .container .content .left-side{
+   width: 95%;
+ }
+ .container .content .center-line{
+  margin-top: 30px;
+ }
+ .container .content .line{
+  transform: rotate(90deg);
+ }
+}
+@media (max-width:1200px){
+  .container{
+    width:90%;
+    padding: 0px 10px 30px 10px;
+  }  
+}
+
+/* /// */

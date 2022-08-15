@@ -1,0 +1,58 @@
+.upload-form-wrapper{
+    min-height: 90vh;
+    background-image: url(../../media/images/Upload/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover
+}
+.upload-form-container{
+    background-color: var(--white);
+    padding: 2vh 2vw;
+    border-radius: 5px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.144);
+}
+
+@media (max-width: 767px) {
+    .upload-form-container{ 
+        width:90vw;
+    }
+}
+
+.upload-form form{
+    display: grid;
+    grid-template-columns: auto;
+    gap:1vw;
+}
+.browse-file-bttn-div{
+    border: 1px dashed var(--black) ;
+    background-color: white;
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.browse-file-bttn-div .fa-upload{
+    color:grey;
+    font-size: 30px
+}
+.upload-form input{
+    height:40px;
+    width:500px;
+    border: 1px solid var(--black);
+    border-radius: 3px;
+    padding: 0 1vw;
+}
+@media (max-width: 768px) {
+    .upload-form input{
+        width: 90vw;
+        max-width: 500px
+    }
+}
+.upload-form form textarea{
+    resize:none;
+    border: 1px solid var(--black);
+    border-radius: 3px;
+}
+.head-text{
+    padding: 2vh 0
+}

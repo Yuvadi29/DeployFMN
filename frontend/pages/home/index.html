@@ -1,0 +1,151 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block style-links %}
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+      
+      <link rel="stylesheet" type="text/css" href="{% static 'CSS/home/index.css' %}?" >
+
+{% endblock style-links %}
+   
+
+
+{% block  content %}
+             
+      <div class="banner">
+         <div class="container">
+            <div class="left">
+               <h1 class="text">
+                  <span>
+                     <span>B</span><span>e</span><span>t</span><span>t</span><span>e</span><span>r</span>
+                  </span>
+                  <span>
+                     learning
+                  </span>
+                  <span>
+                     outcomes
+                  </span>
+                  <span>
+                     is
+                  </span>
+                  <span>
+                     at
+                  </span>
+                  <span>
+                     core
+                  </span>
+                  <span>
+                     of
+                  </span>
+                  <span>
+                     everything
+                  </span>
+                  <span>
+                     we
+                  </span>
+                  <span>
+                     do!
+                  </span>
+               </h1>
+               <a href="/about"><button>Explore Us</button></a>
+            </div>
+            <div class="right">
+               <img class="owl-img" src="{% static 'media/images/home/owllogo.png' %}" alt="">
+            </div>
+         </div>
+      </div>
+      <div class="quotes">
+         <div class="container">
+            <div class="sub-container">
+               <h3 id="quotes-text"></h3>
+               <div>
+                  <p>-&nbsp;
+                  <p id="author-name"></p>
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+      <!-- everything you need to know section  -->
+      <div class="center-div-everything-yk">
+         <div class="everything-you-need grid-align-center">
+             <h2>Everything you need to improve your grades</h2>
+             <div class=" section-grid-2 everything-yk-section-container">
+                 <div class="left section-grid-2">
+                     <div class="grid-align-center everything-yk-icon">
+                         <i class="fa-solid fa-cloud-arrow-down fa-3x"></i>
+                     </div>
+                     <div class="everything-y-need-right">
+                        <div>
+                           <h3>Free study resources</h3>
+                        </div>
+                        <div>
+                           <p> 
+                               Browse through our extensive content range,
+                               from hand-written notes, content from peers,
+                               Teachers, institutions and many other
+                               top trusted sources
+                           </p>
+                        </div>
+                     </div>
+                 </div>
+                 <div class="section-grid-2">
+                     <div  class="grid-align-center everything-yk-icon">
+                         <i class="fa-solid fa-cloud-arrow-down fa-3x"></i>
+                     </div>
+                     <div class="everything-y-need-right">
+                         <div><h3>Education Simplified</h3></div>
+                         <div>
+                            <p>
+                                 Access the best, the latest,
+                                the most relevant Study materials from across
+                                the universities, all at a single click
+                            </p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="section-grid-2">
+                     <div  class="grid-align-center everything-yk-icon">
+                         <i class="fa-solid fa-cloud-arrow-down fa-3x"></i>
+                     </div>
+                     <div class="everything-y-need-right">
+                         <div><h3>Simply The Best</h3></div>
+                         <div>
+                            <p>All the documents have been rated by your fellow students to maintain excellent quality.</p>
+                         </div>
+                     </div> 
+                 </div>
+                 <div class="section-grid-2">
+                     <div class="grid-align-center everything-yk-icon">
+                       <i class="fa-solid fa-cloud-arrow-down fa-3x"></i>
+                     </div>
+                     <div class="everything-y-need-right">
+                         <div><h3>Don’t miss out!</h3></div>
+                         <div>
+                            <p>We will keep you informed of the new documents that other students have uploaded for your courses</p>
+                         </div>
+                     </div>
+                     
+                 </div>
+         
+                 
+     
+                 </div>
+             </div>  
+          </div>
+     </div>
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+   <script src="{% static 'javascript/index.js'%}"></script>
+{% endblock scripts %}   

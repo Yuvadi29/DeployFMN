@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="{% static 'CSS/components/footer.css' %}">
+
+   <!-- For social links - fontawesome symbols -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   
+</head>
+<body>
+    <footer id="footer">
+        <div class="container">
+           <div class="footer-container">
+              <div class="left">
+                 <h3>Socials</h3>
+                 <p><i class="fa-brands fa-twitter-square "></i> Twitter</p>
+                 <p><i class="fa-brands fa-facebook-square "></i> Facebook</p>
+                 <p><i class="fa-brands fa-linkedin "></i> Linkedin</p>
+              </div>
+              <div class="middle">
+                 <h3>Navigation Links</h3>
+                 <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                 </ul>
+              </div>
+              <div class="right">
+                 <h3>Contact Us!</h3>
+                 <p>
+                    Dummy Contact Details <br />
+                    line 1 <br />
+                    line2 </br />
+                 </p>
+              </div>
+           </div>
+        </div>
+        <div class="footer-bottomline">
+           <div class="container">
+              <div>
+                 Copyright &copy;&nbsp;
+                 <p id="current-year"></p>
+                 &nbsp;
+              </div>
+
+              <p>All rights reserved | FindMyNotes</p>
+
+           </div>
+        </div>
+     </footer>
+</body>
+</html>

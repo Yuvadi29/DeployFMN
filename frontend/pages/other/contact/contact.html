@@ -1,0 +1,65 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block style-links %}
+
+<link rel="stylesheet" href="{% static 'CSS/other/contact/contact.css' %}">
+
+{% endblock style-links %}
+   
+
+
+{% block  content %}
+             
+
+<div class="container">
+    <div class="content">
+      <div class="left-side">
+        <div class="address details">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="topic">Address</div>
+          <div class="text-one">VCET,</div>
+          <div class="text-two">near vasai station.</div>
+        </div>
+        <div class="phone details">
+          <i class="fas fa-phone-alt"></i>
+          <div class="topic">Phone</div>
+          <div class="text-one">+91 9999999999</div>
+        </div>
+        <div class="email details">
+          <i class="fas fa-envelope"></i>
+          <div class="topic">Email</div>
+          <div class="text-one">abcd@gmail.com</div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="topic-text">Contact US</div>
+        <p>We're here to help and answer any questions you might have.</p>
+        <p>We look forward to hearing from you :)</p>
+      <form action="#">
+        <div class="input-box">
+          <input type="text" placeholder="Enter your name">
+        </div>
+        <div class="input-box">
+          <input type="text" placeholder="Enter your email">
+        </div>
+        <div class="input-box message-box">
+          <textarea placeholder="Enter your message"></textarea>
+        </div>
+        <div class="button">
+          <input type="button" value="SUBMIT" >
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+
+     
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+
+{% endblock scripts %}   

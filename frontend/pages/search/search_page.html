@@ -1,0 +1,463 @@
+{% extends "base_template.html" %}
+{% load static %}   
+
+{% block style-links %}
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/search/search_page.css' %}?" %}>
+{% endblock style-links %}
+
+
+{% block  content %}
+<div class="search-page-wrapper">
+    <div class="search-page-container">
+        <div class="search-box-container flex">
+                <input type="text" placeholder="Search Resources" onkeypress="return triggerEnter('search_query_on_page')"  id="search_query_on_page" />
+                <button onclick="searchQuery('search_query_on_page')" class="search-bttn">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+    </div>
+</div>
+
+<div class="search-result">
+    {% for file in all_resources %}
+        {% if file.file_type == "pdf" %}
+            
+            {% comment %} <span>
+            </span> {% endcomment %}
+            <div class="pdf-result-container">
+                <div class="pdf-result">
+
+                    <span class="pdf-icon-container">
+                        <i class="fa fa-file-pdf-o fa-3x"></i>
+                    </span>
+
+                    <span>
+                        <div>
+                            <a class="file-title" href="/files/{{file.file_url}}" target="_blank">{{file.file_title}}</a>
+                        </div>
+                        <div>
+                            
+                            <p class="file-description" title="{{file.description}}"><small><i class="fa fa-heart"></i> 
+                                <span id="post_like_count_{{file.pk}}"> {{file.likes}}</span></small> | <small>{{file.description}}</small></p>
+
+                            <div  class="card-flex-row color-1">
+                                <P><small>{{file.user.username}} | {{file.uploading_time}} | 
+                            <a  class="report-bttn" onclick="showReportPopup('{{file.pk}}','{{current_user}}','{{file.user.pk}}')">Report</a></small></P>
+                            </div>
+
+                            <div >
+                                <p><small>{{file.tags}}</small></p>
+                            </div>
+                        </div>
+                    </span>
+                    <div class="button-group">
+
+                        <!-- Like button -->
+                        {% if file.pk in liked_by_user %}
+                        <button title="Unlike" onclick="toggleLikes('{{file.pk}}',this)" >
+                            <i class="fa fa-heart fa-2x"></i>
+                        </button>
+                        {% else %}
+                        <button title="Like" onclick="toggleLikes('{{file.pk}}',this)" >
+                            <i class="fa fa-heart-o fa-2x"></i>
+                        </button>
+                        {% endif %}
+
+
+                        <!-- Bookmark button -->
+                        {% if file.pk in bookmarked_by_user %}
+                        <button title="Remove Bookmark"  onclick="toggleBookmark('{{file.pk}}',this)" >
+                            <i class="fa fa-bookmark fa-2x"></i>
+                        </button>
+                        {% else %}
+                        <button title="Add Bookmark"  onclick="toggleBookmark('{{file.pk}}',this)" >
+                            <i class="fa fa-bookmark-o fa-2x"></i>
+                        </button>
+                        {% endif %}
+
+                        <!-- Download Button -->
+                        <button title="Download">
+                            <a href="/files/{{file.file_url}}" download="{{file.file_url}}"><i class="fa fa-floppy-o fa-2x"></i></a>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        {% endif %}
+        
+    {% endfor %}
+
+    
+    <div class="card-wrapper">
+        <div class="card-container">
+            
+{% for file in all_resources %}
+{% if file.file_type == "image" %}
+    <div class="img-card" onmouseover="showDescription(this)" onmouseout="hideDescription(this)">
+        <div class="img-content bg-">
+            <img src="/files/{{file.file_url}}" />
+        </div>
+        <div class="img-card-container">
+            <span>
+
+                <div class="img-card-1-row">
+                    <div class="title-div">
+                        <a class="file-title" href="/files/{{file.file_url}}" target="_blank">
+                            {{file.file_title}}
+                        </a>
+                    </div>
+                    <div class="button-div">
+
+
+                    {% if file.pk in liked_by_user %}
+                        <button title="Unlike" onclick="toggleLikes('{{file.pk}}',this)" >
+                            <i class="fa fa-heart fa-2x"></i>
+                        </button>
+                    {% else %}
+                        <button title="Like" onclick="toggleLikes('{{file.pk}}',this)" >
+                            <i class="fa fa-heart-o fa-2x"></i>
+                        </button>
+                    {% endif %}
+        
+                        
+
+                        
+                    {% if file.pk in bookmarked_by_user %}
+                        <button title="Remove Bookmark"  onclick="toggleBookmark('{{file.pk}}',this)" >
+                            <i class="fa fa-bookmark fa-2x"></i>
+                        </button>
+                    {% else %}
+                        <button title="Add Bookmark"  onclick="toggleBookmark('{{file.pk}}',this)" >
+                            <i class="fa fa-bookmark-o fa-2x"></i>
+                        </button>
+                    {% endif %}
+
+
+                        <button title="Download">
+                            <a href="/files/{{file.file_url}}" download="{{file.file_url}}"><i class="fa fa-floppy-o fa-2x"></i></a>
+                        </button>
+
+                    </div>
+                </div>
+             
+                <div>
+ 
+                    <p class="truncate-line-1" id="file_description" title="{{file.description}}"><small>{{file.description}}</small></p>
+
+                    <div  class="card-flex-row">
+                        <P><small>{{file.user.username}} | {{file.uploading_time}} | 
+                            <a class="report-bttn" onclick="showReportPopup('{{file.pk}}','{{current_user}}','{{file.user.pk}}')">Report</a></small></P>
+                            
+                    </div>
+                    <div class="card-flex-row">
+                        <p><small>{{file.tags}}</small></p>
+                        <p class="card-flex-dir-right" title="Likes"><small><i class="fa fa-heart"></i> <span id="post_like_count_{{file.pk}}">{{file.likes}}</span> </small></p>
+                    </div>
+                </div>
+            </span>
+
+        </div>
+    </div>
+
+{% endif %}
+{% endfor %}
+
+</div>
+</div>
+</div>
+
+
+<div class="report-form-overlay" id="report_form_overlay">
+    <div class="report-form-wrapper">
+
+        <div class="report-form-containter">
+            <div class="hide-form-button">
+                <button onclick="closeReportPopup()">
+                    <i class="fa fa-close fa-2x"></i>
+                </button>
+            </div>
+
+            <div>
+                <h2>Why are you reporting this content:</h2>
+            </div>
+            <br>
+            <form action="" method="post"  onsubmit="return false" >
+                {% csrf_token %}
+                <div class="report-form-inside">
+
+                    <div class="report-form-input-div">
+
+                        <select class="report-inputs" name="" id="report_topic" >
+
+                            <option value="Inappropriate">Inappropriate</option>
+                            <option value="Not the original owner">Not the original owner</option>
+                            <option value="Abusive">Abusive</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="hidden-input-div">
+                        <input type="hidden" name="" id="reporting_file_id">
+                        <input type="hidden" name="" id="user_reported_issue">
+                        <input type="hidden" name="" id="user_posted">
+                    </div>
+
+                    <div class="report-form-input-div">
+                        <textarea oninput="wordCounter(this,'400')"  class="report-inputs" name="" id="reason_to_report" placeholder="Message..."></textarea>
+                        <div class="input-length-counter-div">
+                            <p class="input-length-counter"><span  id="input_length_counter">0</span>/400</p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="report-form-input-div">
+                        <input class="simple-bttn-2" type="submit" onclick="reportPost()" value="Submit">
+                    </div>
+
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+
+<script defer src="{% static 'javascript/search_query.js' %}"></script>
+<script defer src="{% static 'javascript/inputFunctions.js' %}"></script>
+
+<script type="text/javascript">
+
+    function showReportPopup(file_id,user_reported_issue,user_posted){
+        document.getElementById("report_form_overlay").style.display="flex";
+        document.getElementById("reporting_file_id").value = file_id;
+        document.getElementById("user_reported_issue").value = user_reported_issue;
+        document.getElementById("user_posted").value = user_posted;
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeReportPopup(){
+        document.getElementById("report_form_overlay").style.display="none"
+        document.body.style.overflow = "";
+
+        document.getElementById("reason_to_report").value = "" ;
+
+    }
+    function showDescription(that){
+        var description = that.querySelector("#file_description")
+        description.classList.remove("truncate-line-1")
+    }
+    function hideDescription(that){
+        var description = that.querySelector("#file_description")
+        description.classList.add("truncate-line-1")
+    }
+    function reportPost(){
+
+        file = document.getElementById("reporting_file_id").value ;
+        user_posted = document.getElementById("user_posted").value ;
+
+        user_reported_issue = document.getElementById("user_reported_issue").value ;
+
+        report_topic = document.getElementById("report_topic").value ;
+        reason_to_report = document.getElementById("reason_to_report").value ;
+
+        try {
+            var xhttp = new XMLHttpRequest();
+
+            // console.log("ajax request state: "+xhttp.readyState);
+
+            xhttp.onreadystatechange = function() {
+
+                if(this.readyState == 4 && this.status == 200){
+                    console.log("Ans:"+ typeof(this.responseText) +" | "+ this.responseText)
+                    if (this.responseText.split(",")[0] == "Success") {
+                        alert("Your message has been sent. <br/> Thank You!")
+                        closeReportPopup();         
+                    }
+                }              
+            }
+
+            file_url = '/report_submit?file_id='+file+'&user_reported_issue='+user_reported_issue+'&user_posted='+user_posted+'&reason_to_report='+reason_to_report+"&report_topic="+report_topic
+
+            xhttp.open('POST',file_url,true);
+            xhttp.setRequestHeader("X-CSRFToken","{{csrf_token}}")
+            xhttp.send();
+        } catch (err) {
+            console.log("Error: " + err)
+        }
+
+
+    }
+
+    function toggleLikes(file,this_button){
+
+        contains_red_heart = this_button.firstElementChild.classList.contains('fa-heart')
+
+        if(contains_red_heart == true){
+            unlikeFile(file,this_button)
+        }
+        else{
+            likeFile(file,this_button)
+        }
+    }
+
+    function likeFile(file,this_button) {
+        console.log("liked:",file);
+        
+        try {
+            var xhttp = new XMLHttpRequest();
+
+            // console.log("ajax request state: "+xhttp.readyState);
+
+            xhttp.onreadystatechange = function() {
+
+                if(this.readyState == 4 && this.status == 200){
+                    // console.log("Ans:"+ typeof(this.responseText) +" | "+ this.responseText.split(",")[1] )
+                    if (this.responseText.split(",")[0] == "Success") {
+                        this_button.innerHTML = "<i class='fa fa-heart fa-2x'></i>";
+                        like_container = "post_like_count_"+file;
+                        // console.log(like_container)
+                        document.getElementById(like_container).textContent = this.responseText.split(",")[1]
+                    }
+                }              
+            }
+
+            file_url = '/file_like?file_id='+file
+
+            xhttp.open('POST',file_url,true);
+            xhttp.setRequestHeader("X-CSRFToken","{{csrf_token}}")
+            xhttp.send();
+        } catch (err) {
+            console.log("Error: " + err)
+        }
+
+
+    }
+    function unlikeFile(file,this_button){
+        console.log("unliked:",file);
+        
+        try {
+            var xhttp = new XMLHttpRequest();
+
+
+            // console.log("ajax request state: "+xhttp.readyState);
+
+            xhttp.onreadystatechange = function() {
+
+                if(this.readyState == 4 && this.status == 200){
+                    console.log("Ans:"+this.responseText.split(",")[0]  )
+
+                    if (this.responseText.split(",")[0] == "Success" ) {
+
+                        this_button.innerHTML = "<i class='fa fa-heart-o fa-2x'></i>";
+
+                        like_container = "post_like_count_"+file;
+                        console.log(like_container)
+                        document.getElementById(like_container).textContent = this.responseText.split(",")[1]
+                    }
+                }
+            }
+
+            file_url = '/file_unlike?file_id='+file
+
+            xhttp.open('POST',file_url,true);
+            xhttp.setRequestHeader("X-CSRFToken","{{csrf_token}}")
+            xhttp.send();
+
+        } catch (err) {
+            console.log("Error: " + err)
+        }
+    }
+
+
+
+    
+    function toggleBookmark(file,this_button){
+
+        contains_bookmark = this_button.firstElementChild.classList.contains('fa-bookmark')
+
+        if(contains_bookmark == true){
+            removeBookmmark(file,this_button)
+        }
+        else{
+            addBookmark(file,this_button)
+        }
+    }
+
+    
+
+    function addBookmark(file,this_button) {
+        console.log("Bookmarked file:",file);
+        
+        try {
+            var xhttp = new XMLHttpRequest();
+
+            // console.log("ajax request state: "+xhttp.readyState);
+
+            xhttp.onreadystatechange = function() {
+
+                if(this.readyState == 4 && this.status == 200){
+                    // console.log("ANs:"+this.responseText)
+                    if (this.responseText == "Success") {
+                        this_button.innerHTML = "<i class='fa fa-bookmark fa-2x'></i>";
+                    }
+                }              
+            }
+
+            file_url = '/add_bookmark?file_id='+file
+
+            xhttp.open('POST',file_url,true);
+            xhttp.setRequestHeader("X-CSRFToken","{{csrf_token}}")
+            xhttp.send();
+        } catch (err) {
+            console.log("Error: " + err)
+        }
+
+
+    }
+    function removeBookmmark(file,this_button){
+        console.log("Removed bookmark from file:",file);
+        
+        try {
+            var xhttp = new XMLHttpRequest();
+
+
+            // console.log("ajax request state: "+xhttp.readyState);
+
+            xhttp.onreadystatechange = function() {
+
+                if(this.readyState == 4 && this.status == 200){
+                    // console.log("ANs:"+this.responseText)
+                    if (this.responseText == "Success") {
+                        this_button.innerHTML = "<i class='fa fa-bookmark-o fa-2x'></i>";
+                    }
+                }
+            }
+
+            file_url = '/remove_bookmark?file_id='+file
+
+            xhttp.open('POST',file_url,true);
+            xhttp.setRequestHeader("X-CSRFToken","{{csrf_token}}")
+            xhttp.send();
+
+        } catch (err) {
+            console.log("Error: " + err)
+        }
+    }
+
+
+</script>
+{% endblock scripts %}   

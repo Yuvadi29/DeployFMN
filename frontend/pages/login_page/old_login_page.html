@@ -1,0 +1,63 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block style-links %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/commonforall.css' %}?" %}>
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/login_page/login_page.css' %}?" %}>
+
+{% endblock style-links %}
+
+{% block  content %}
+             
+<div class="login-form-container">
+    <div class="login-form">
+        <div class="text-center login-head" id="login">Login Here</div>
+        <div class="text-center imp-field">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="input-field-grid-2">
+                <div class="input-field">
+                    <input type="text" autocomplete="off" name="username" onfocusout="input_field_focusout('username_label','username_input')" onfocus="input_field_focus('username_label')" id="username_input" required />
+                    <label for="name" class="input-field-label" id="username_label">Username:<span class="imp-field">*</span></label>
+                </div>
+
+                <div class="input-field">
+                    <input type="password" name="password" onfocusout="input_field_focusout('password_label','password_input')" onfocus="input_field_focus('password_label')" id="password_input" required />
+                    <label for="name" class="input-field-label" id="password_label">Password:<span class="imp-field">*</span></label>
+                </div>
+
+                <div class="">
+                    <input class="simple-bttn-2" type="submit" name="submit"/>
+                </div>
+
+            </div>
+        </form>
+        <div class="forget-password-div">
+            <a href="">Forget Password?</a>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+<script>
+    function input_field_focus(n){
+        document.getElementById(n).classList.add("input-field-focused")
+    }
+    function input_field_focusout(n,m){
+        var inp_value = document.getElementById(m).value;
+        if(inp_value == ""){
+            document.getElementById(n).classList.remove("input-field-focused")
+        }
+    }
+</script>
+{% endblock scripts %}   

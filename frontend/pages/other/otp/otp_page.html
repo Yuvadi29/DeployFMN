@@ -1,0 +1,71 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block style-links %}
+
+    <link rel="stylesheet" href="{% static 'CSS/other/otp_page.css' %}">
+
+{% endblock style-links %}
+   
+
+
+{% block  content %}
+             
+<div class="otp-form-wrapper">
+
+    <div class="otp-form-container">
+      <h2>Verify Your Email</h2><br>
+      <h3 class="color-1">An OTP has been sent to your Email</h3>
+      <p><small class="imp-field">Check spam, if haven't recieved in inbox</small></p>
+      <form method="post">
+        {% csrf_token %}
+        <div class="imp-field">
+            <small>
+                {% for message in messages %}
+                {{message}}<br>
+                {% endfor %}
+            </small>
+        </div>
+        <br>
+        <br>
+        <div class="input-field">
+          <input type="text" autocomplete="off" name="otp_input" onfocusout="input_field_focusout('otp_input_label','otp_input_field')" onfocus="input_field_focus('otp_input_label')" id="otp_input_field" required />
+          <label for="name" class="input-field-label" id="otp_input_label">Enter OTP:</label>
+      </div>
+        <input type="submit" class="simple-bttn simple-bttn-2" />
+        <input type="hidden" name="" value="{{request}}" id="">
+        <input type="hidden" name="" value="{{first_name}}" id="">
+        <input type="hidden" name="" value="{{username}}" id="">
+        <input type="hidden" name="" value="{{user_id}}" id="">
+        <input type="hidden" name="" value="{{mail_id}}" id="">
+        <br><br>
+        <a class="" href="" onclick="alert('OTP sent to your Email: {{mail_id}}')">Resend OTP</a>
+      </form>
+      <div>
+      </div>
+    </div>
+  
+  </div>
+  
+     
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+
+  <script>
+    function input_field_focus(n){
+    document.getElementById(n).classList.add("input-field-focused")
+}
+
+function input_field_focusout(n,m){
+    var inp_value = document.getElementById(m).value;
+    if(inp_value == "" || inp_value == null){
+        document.getElementById(n).classList.remove("input-field-focused")
+    }
+}
+  </script>
+
+{% endblock scripts %}   

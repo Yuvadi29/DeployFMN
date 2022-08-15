@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Manrope:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Manrope:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: arial,sans-serif;
+}
+:root{
+
+    --black: #0f0f0f;
+    --white: #ffffff;
+    
+    --theme-light-1: #f2f3f5;
+    --theme-light-2: #95adbe;
+    --theme-light-3: #fcf6db;
+    
+    --theme-dark-1: #4d4d4d;
+    --theme-dark-2: #69370d;
+    --theme-dark-3: #6d5644;
+    --theme-dark-4: #1a8ee0;
+    
+    /* blue color contrast */
+    --color-1:#094166;
+    --color-2:#005691;
+    --color-3:#4CB1F6;
+    --color-4:#E8f1f5;
+    --color-5:#eeeeeec5;
+
+    /* Background color */
+    --bg-1: #E8f1f5;
+    --bg-2: #95adbe;;
+    --bg-3: #fcf6db;
+    
+    --font-1:lora;
+    --font-2:Manrope;
+    --font-3:Quattrocento Sans;
+    --font-4:Alegreya;
+    --logo:Satisfy;
+
+    --body-start-position: 50px;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ====================  custom input styles  ====================   */
+.input-field{
+    position: relative;
+    padding:0 0 3vh 0 ;
+    background-color:transparent ;
+}
+.input-field input{
+    width:30vw;
+    border: transparent;
+    border-bottom: solid 1px;
+    background-color:transparent;
+    height:3vh;
+    z-index: 100;
+}
+.input-field .input-field-label{
+    position:absolute;
+    white-space: nowrap;
+    left: 0vw;
+    top: 0;
+    transition: 0.3s;
+    cursor:text;
+    color:var(--theme-dark-1);
+}
+.input-field .input-field-focused{
+    top: -2vh;
+    z-index: 0;
+    font-size: 12px;
+}
+
+.input-length-counter-div{
+    text-align: right;
+}
+
+/* ================ custom default styles ================ */
+a{
+    text-decoration:none;
+    color: unset;
+}
+
+textarea{
+    padding: 1vh 1vw;
+
+}
+/* ========== Button styles =========== */
+button{
+    background: transparent;
+    border: transparent;
+}

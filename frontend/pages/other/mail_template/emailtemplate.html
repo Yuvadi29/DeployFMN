@@ -1,0 +1,47 @@
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+      <title>Email Template</title>
+    </head>
+
+    <body class="bg-light">
+      <nav class="bg-light">
+        <div class="container-fluid">
+          <h1 class="text-center fw-bold fs-2 p-4 text-dark">FINDMYNOTES</h1>
+        </div>  
+      </nav>
+      <div class="bg-warning">
+        <i class="fas fa-envelope fs-1 position-relative start-50 translate-middle mt-5 text-light"></i>
+        <p class="text-center fs-5 text-light" style="margin-bottom: -1px;">THANKS FOR SIGNING UP 4!</p>
+        <p class="text-center text-light fs-2 pb-4">Verify Your E-mail Address</p>
+      </div>
+      <div class="bg-light">
+      <h1 class="text-center mt-1"></h1>
+      <p class="text-center fs-4 m-3">Hello {{ name }},<br>Your almost ready to get started. Please verify your email address to get access to all the notes which you were finding from a long time</p>
+      <p class="text-center fw-bold text-primary fs-4">Your OTP/Verification code is-</p>
+      <h1 class="text-center fw-bold fs-1 text-dark mb-4">{{ otp }}</h1>
+      
+      <!-- <button type="submit" class="btn btn-danger fs-3 position-relative start-50 translate-middle mt-5">Verify Your Email</button>     -->
+      </div>
+      <div class="bg-dark pb-4">
+        <p class="text-center fs-2 text-light pt-3">Contact Us</p>
+        <p class="text-center text-light fs-5" style="padding-bottom: 12px;">Vidhyavardhani's College of Engineering and Technology, Vasai west</p>
+        <div class="text-center">
+          <a href="#" class="link link-light m-3" id="a1"><i class="fab fa-facebook-f fs-2"></i></a>
+          <a href="#" class="link link-light m-3" id="a2"><i class="fab fa-instagram fs-2"></i></a>
+          <a href="#" class="link link-light m-3" id="a3"><i class="fab fa-whatsapp fs-2"></i></a>
+          <a href="#" class="link link-light m-3" id="a4"><i class="fab fa-twitter fs-2"></i></a>
+        </div>
+      </div>
+      <!-- Bootstrap Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    </body>
+  </html>

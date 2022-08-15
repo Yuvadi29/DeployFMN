@@ -1,0 +1,36 @@
+.otp-form-wrapper{
+    height:70vh;
+    /* border: 1px solid ; */
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    align-content: center;
+}
+
+.input-field{
+    position: relative;
+    padding:0 0 3vh 0 ;
+}
+
+.input-field input:not([type = 'file']){
+    width:30vw;
+    border: transparent;
+    border-bottom: solid 1px;
+    background-color:transparent;
+    height:3vh;
+    z-index: 5;
+}
+.input-field .input-field-label{
+    position:absolute;
+    white-space: nowrap;
+    left: 0vw;
+    top: 0;
+    transition: 0.3s;
+    cursor:text;
+    z-index: 0;
+    color:var(--theme-dark-1);
+}
+.input-field .input-field-focused{
+    top: -2vh;
+    font-size: 12px;
+}

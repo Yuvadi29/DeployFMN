@@ -1,0 +1,7 @@
+#sidebar{
+    z-index: 10;
+}
+.main-body-container{
+    padding: var(--body-start-position) 0 0 0 ;
+    min-height: 90vh;   
+}

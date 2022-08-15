@@ -1,0 +1,139 @@
+.new-section:nth-child(2n){
+    background-color: var(--color-4);
+}
+.new-section:nth-child(2n+1){
+
+}
+.new-section{
+    display: grid;
+    margin-left:auto;
+    padding: 60px 0;
+    width: 100%;
+    font-family: bree serif;
+}
+.new-section .section-head{
+    text-align: center;
+    font-size: 150%;
+    padding: 0 0 40px 0;
+}
+/* section grids */
+.section-grid-2{
+    width:95%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+.section-image{
+    width: 90%;
+}
+.section-grid-text{
+    font-size: 18px;
+}
+.section-left .section-content{
+    font-size: 20px;
+}
+.mission-vision-text{
+    /* text-align: left; */
+    font-size: 20px
+}
+.learn-more-bttn a{
+    color: white;
+}
+/* section 4 */
+
+.profile-cards{
+    width: 100%;
+    display : grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+    gap: 1%;
+}
+.card{
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f2f3f5;
+}
+.card-img img{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.card-text{
+    padding: 0 0 0 3%;
+}
+.card-bttn{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.card-sub-text{
+    color: grey
+}
+.section-4 a{
+    text-decoration: none;
+    border:none;
+    box-shadow: none;
+}
+.show-all-team{
+    font-size:30px;
+    border-radius: 5px;
+}
+.fa-arrow-right{
+    width: 40px;
+    height: 30px;
+}
+.show-all-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* for mobile view */
+@media screen and (max-width: 1080px) {   
+    .new-section{
+        height:auto;
+    } 
+    .section-grid-2{
+        grid-template-columns: 100%;
+        justify-content:center;
+        height: auto;
+    }
+    .section-image{
+        width: 100%;
+    }
+    .new-section .section-head{
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: left;
+        
+    }
+    .section-grid-text{
+        align-self:baseline;
+        display: flex;
+        justify-content: center;
+    }
+    .section-content{
+        width: 85%;
+    }
+    .section-left .section-content{
+    padding: 0 0 0 0;
+    }
+    .profile-cards{
+        display: grid;
+        width:100%;
+        grid-template-columns: 50% 50%;
+        align-items: center;
+        height: auto;
+    }
+    .card{
+        width:90%;
+        justify-self: center;
+    }
+    .card-img img{
+        width:100%;
+    }
+    .show-all-div{
+        text-align: center;
+    }
+
+}

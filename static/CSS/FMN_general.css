@@ -1,0 +1,302 @@
+
+/* Display */
+.hidden {
+	display: none !important;
+}
+
+/* color */
+.imp-field{
+    color: red !important;
+}
+.col-black{
+    color:black !important;
+}
+.col-white{
+    color: var(--white) !important;
+}
+
+/* Theme Colors */
+.color-1{
+    color: var(--color-1) !important;
+}
+.color-2{
+    color: var(--color-2) !important;
+}
+.color-3{
+    color: var(--color-3) !important;
+}
+.color-4{
+    color: var(--color-4) !important;
+}
+.color-5{
+    color: var(--color-5) !important;
+}
+
+/* Background Colors */
+.bg-1{
+    background-color: var(--bg-1) !important;
+}
+.bg-2{
+    background-color: var(--bg-2) !important;
+}
+.bg-3{
+    background-color: var(--bg-3) !important;
+}
+
+/* Padding in px */
+
+    /* 5px */
+.p-1px{
+    padding:5px;
+}
+.py-1px{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.pt-1px{
+    padding-top: 5px;
+}
+.pb-1px{
+    padding-bottom: 5px;
+}
+.px-1px{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.pr-1px{
+    padding-right: 5px;
+}
+.pl-1px{
+    padding-left: 5px;
+}
+
+    /* 10px */
+.p-2px{
+    padding:10px;
+}
+.py-2px{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.pt-2px{
+    padding-top: 10px;
+}
+.pb-2px{
+    padding-bottom: 10px;
+}
+.px-2px{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.pr-2px{
+    padding-right: 10px;
+}
+.pl-2px{
+    padding-left: 10px;
+}
+
+    /* 15px */
+.p-3px{
+    padding:15px;
+}
+.py-3px{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.pt-3px{
+    padding-top: 15px;
+}
+.pb-3px{
+    padding-bottom: 15px;
+}
+.px-3px{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.pr-3px{
+    padding-right: 15px;
+}
+.pl-3px{
+    padding-left: 15px;
+}
+
+
+    /* 20px */
+.p-4px{
+    padding:20px;
+}
+.py-4px{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.pt-4px{
+    padding-top: 20px;
+}
+.pb-4px{
+    padding-bottom: 20px;
+}
+.px-4px{
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.pr-4px{
+    padding-right: 20px;
+}
+.pl-4px{
+    padding-left: 20px;
+}
+
+
+    /* 25px */
+.p-5px{
+    padding:25px;
+}
+.py-5px{
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.pt-5px{
+    padding-top: 25px;
+}
+.pb-5px{
+    padding-bottom: 25px;
+}
+.px-5px{
+    padding-right: 25px;
+    padding-left: 25px;
+}
+.pr-5px{
+    padding-right: 25px;
+}
+.pl-5px{
+    padding-left: 25px;
+}
+
+
+
+
+/* text */
+.text-center{
+    text-align: center !important;
+}
+.text-right{
+    text-align: right !important;
+}
+.text-left{
+    text-align: left !important;
+}
+
+.truncate-line-1{
+    -webkit-line-clamp: 1;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+.truncate-line-2{
+    -webkit-line-clamp: 2;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* Fonts */
+.font-size-30{
+    font-size: 30px !important;
+}
+.font-size-27{
+    font-size: 27px !important;
+}
+.font-size-25{
+    font-size:25px !important;
+}
+.font-size-22{
+    font-size:22px !important;
+}
+.font-size-20{
+    font-size: 20px !important;
+}
+.font-size-18{
+    font-size: 18px !important;
+}
+.font-size-16{
+    font-size:16px !important;
+}
+.font-size-14{
+    font-size:14px !important;
+}
+.font-size-12{
+    font-size:12px !important;
+}
+.font-size-10{
+    font-size:10px !important;
+}
+
+/* Shadow */
+.box-shadow{
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.115) !important;
+}
+
+
+/* Border-Radius */
+.border-radius-1{
+    border-radius: 3px !important;
+}
+.border-radius-2{
+    border-radius: 5px !important;
+}
+.border-radius-3{
+    border-radius:10px !important;
+}
+
+
+
+/* Animations */
+.float-infinite{
+    animation: floating 1s ease-in-out infinite;
+}
+.float-forwards{
+    animation: floating 1s ease-in-out forwards;
+}
+.fade-in-forwards{
+    animation:fade-in 1s ease-in forwards;
+}
+
+
+/* Positions */
+.position-relative{
+    position: relative
+}
+.position-absolute{
+    position: absolute;
+}
+.position-fixed{
+    position: fixed;
+}
+
+/* Button Styles */
+.simple-bttn{
+    background-color:var(--color-1);
+    border:transparent;
+    font-size: 25px;
+    padding:10px 15px;
+    border-radius:2px;
+    color:white;
+}
+
+.simple-bttn-2{
+    border: none;
+    border-radius: 2px;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 8px ;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.simple-bttn-2:hover {
+    background-color: #555;
+}

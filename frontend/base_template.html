@@ -1,0 +1,50 @@
+{% block loadstatic %}
+    {% load static %}
+{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+    {% block title %}Find My Notes{% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/commonforall.css' %}?" %}>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/base_template.css' %}?" %}>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/FMN_general.css' %}?" %}>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/animations.css' %}?" %}>
+
+    {% block style-links %}
+     {% endblock style-links %}
+
+    {% block head-tag-scripts %}
+    {% endblock head-tag-scripts %}
+
+</head>
+
+<body>
+
+    <div id="sidebar">
+        {% block navbar %}
+            {% include 'components/navbar.html'%}
+        {% endblock navbar %}
+    </div>
+
+    <div class="main-body-container">
+        {% block  content %}
+             
+        {% endblock content %}
+    </div>
+    
+   {% block scripts %}
+   {% endblock scripts %}
+    
+
+   <div class="footer" >
+        {% block footer %}
+            {% include 'components/footer.html'%}
+        {% endblock footer%}
+    </div>
+
+</body>
+
+</html>

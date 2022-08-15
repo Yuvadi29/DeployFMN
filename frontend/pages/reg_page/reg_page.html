@@ -1,0 +1,122 @@
+
+
+
+
+
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block style-links %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/commonforall.css' %}?" %}>
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/reg_page/reg_page.css' %}?" %}>
+
+{% endblock style-links %}
+   
+
+
+{% block  content %}
+<div class="container">
+    <div class="content">
+        <div class="left-side">
+            <div class="topic-text">Registration</div>
+
+            <div class="imp-field text-center">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+
+            <form action="#" method="post">
+                {% csrf_token %}
+                {% if messages %}
+                {% for message in messages %}
+                    <p class="imp-field text-center">{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+                <div class="input-box input1">
+                    <input type="text" placeholder="First Name" name="firstname" style="width: 48%;" min-length="3" max-length="30" required>
+                    <input type="text" placeholder="Last Name" name="lastname" style="width: 48%;"  min-length="3" max-length="30"  required>
+                </div>
+                <div class="input-box input1">
+                    <select id="select" name="gender" style="width: 48%;" required>
+                        <option selected disabled>Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <input type="date" id="input_date" onchange="dateLimits()" name="dob" placeholder="Date Of Birth" min="01-01-2000" style="width: 48%;"  required>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="mail" placeholder="Email" required>
+                </div>
+                <div class="input-box">
+                    <input type="number" name="phone" placeholder="Mobile no." required>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" id="pass_input" placeholder="Password" required>
+                    <div class="middle">
+                        <p class="show">
+                            <input class="check" onclick="showPass(this)" type="checkbox">
+                            Show Password
+                        </p>
+                        <!-- <p><a href="" type="reset">RESET?</a></p> -->
+                    </div>
+                    </div>
+                <div class="button">
+                    <input type="submit" value="REGISTER">
+                </div>
+                <div class="middle-text">
+                    <p>Already have an Account?</p>
+                    <a href="/loginpage">Login</a>
+                </div>
+            </form>
+        </div>
+        <div class="center-line">
+            <div class="line"></div>
+            <div class="or">or</div>
+        </div>
+        <div class="right-side">
+            <p class="right-side-text">Register with Social Platforms</p>
+            <div class="social">
+                    <img src="{% static 'media/images/loginandsignup/google.png' %}" alt="">
+                    <input type="button" value="Continue with Google">
+                </div>
+                <div class="social">
+                    <img src="{% static 'media/images/loginandsignup/Facebook.png' %}" alt="">
+                    <input type="button" value="Continue with Facebook">
+                </div>
+                <div class="social">
+                    <img src="{% static 'media/images/loginandsignup/github.png' %}" alt="">
+                    <input type="button" value="Continue with Github">
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+
+    <script>
+        
+        function showPass(checkbox){
+        var password_inp = document.getElementById('pass_input')
+        if(checkbox.checked){
+            password_inp.type = "text"
+        }
+        else{
+            password_inp.type = "password"
+        }
+    }
+    </script>
+
+
+{% endblock scripts %}   

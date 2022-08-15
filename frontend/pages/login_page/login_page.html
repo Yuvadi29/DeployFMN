@@ -1,0 +1,95 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block style-links %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/commonforall.css' %}?" %}>
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/login_page/login_page.css' %}?" %}>
+
+{% endblock style-links %}
+
+{% block  content %}
+<div class="container">
+    <div class="content">
+        <div class="left-side">
+            <div class="topic-text">Login</div>
+
+            <div class="imp-field text-center">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+
+            <form action="#" method="post">
+                {% csrf_token %}
+                <div class="input-box">
+                    <input type="text" placeholder="Username" name="username">
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" id="pass_input" name="password">
+                    <div class="middle">
+                        <p class="show">
+                            <input class="check" onclick="showPass(this)" type="checkbox">
+                            Show Password
+                        </p>
+                        <p><a href="#">Forgot password?</a></p></div>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="LOGIN">
+                    </div>
+                    <div class="middle-text">
+                        <p>Don't have an Account?</p>
+                        <a href="/signuppage">Register</a>
+                    </div>
+            </form>
+        </div>
+        <div class="center-line">
+            <div class="line"></div>
+            <div class="or">or</div>
+        </div>
+        <div class="right-side">
+            <p class="right-side-text">Login with Social Platforms</p>
+                <div class="social">
+                    <img src="{% static 'media/images/loginandsignup/google.png' %}" alt="">
+                    <input type="button" value="Continue with Google">
+                </div>
+                <div class="social">
+                    <img src="{% static 'media/images/loginandsignup/Facebook.png' %}" alt="">
+                    <input type="button" value="Continue with Facebook">
+                </div>
+                <div class="social">
+                    <img src="{% static 'media/images/loginandsignup/github.png' %}" alt="">
+                    <input type="button" value="Continue with Github">
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+<script>
+    function input_field_focus(n){
+        document.getElementById(n).classList.add("input-field-focused")
+    }
+    function input_field_focusout(n,m){
+        var inp_value = document.getElementById(m).value;
+        if(inp_value == ""){
+            document.getElementById(n).classList.remove("input-field-focused")
+        }
+    }
+    function showPass(checkbox){
+        var password_inp = document.getElementById('pass_input')
+        if(checkbox.checked){
+            password_inp.type = "text"
+        }
+        else{
+            password_inp.type = "password"
+        }
+    }
+</script>
+{% endblock scripts %}   

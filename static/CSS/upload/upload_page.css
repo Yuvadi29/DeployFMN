@@ -1,0 +1,164 @@
+/* *{
+    font-family:sans-serif;
+} */
+.show {
+    display:grid !important;
+    position: relative !important;
+}
+.droplist{
+    display: none;
+    position: absolute;
+    margin-top: 1%;
+    max-height: 15vh;
+}
+.droplist p{
+    text-decoration: none;
+    width: 50%;
+    padding: 1%;
+    justify-content: center;
+    margin: 0;
+    outline: 1px solid rgb(165, 165, 165);
+    font-size: 0.678em;
+    color: rgb(82, 91, 99);
+    background-color: #F0F8FF;
+    cursor: pointer;
+}
+
+
+h4{
+    color: rgb(158, 154, 154);
+    font-style: normal;
+    font-weight: 100;
+    font-size: 0.799em;
+    margin-top: 5px;
+}
+@media screen and ( max-width:760px){
+    .page{
+        padding-top: 8vh;
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+    }
+    .page-container{
+        background-color: var(--white);
+        margin-top: 5%;
+        padding: 3%;
+        width: 90%;
+        font-size: 0.744em;
+        height: fit-content;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    .browseFile > svg{
+        color: lightslategrey;
+        height: 8vh;
+        width: 100%;
+        
+    }
+}
+@media screen and ( min-width:760px ){
+    .page{
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        min-height: 115vh;
+    }
+    .page-container{
+        background-color: white;
+        margin-top: 10vh;
+        padding: 3%;
+        width: 40vw;
+        font-size: 0.869em;
+        height: fit-content;
+        border-radius: 14px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    .browseFile > svg{
+        height: 9vh;
+        width: 100%;
+        color: lightslategrey;
+    }
+}
+.input{
+    width: 100%;
+    height: 40px;
+    padding: 2% 0% 2% 2%;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.989em;
+    outline: 1px solid lightgray;
+    color: rgb(27, 27, 27);
+}
+.input:focus{
+    outline: 2px solid #B9D9EB;
+}
+.fileinput{
+    display: flex;
+    justify-content: center;
+    height: 16vh;
+    width: 100%;
+    cursor: pointer;
+    color: transparent;
+}
+.browseFile{
+    position: absolute;
+    display: grid;
+    justify-content: center;
+}
+
+.browseFile>p{
+    margin: 0;
+    color: #318CE7;
+    font-size: 0.879rem;
+}
+.browseFile>span{
+    color: slategrey;
+    font-size: 0.679rem;
+}
+input[type="file"]::-webkit-file-upload-button{
+    visibility: hidden;
+}
+.inputLabel{
+    border:  1px dashed #4B9CD3;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color:#F0F8FF;
+}
+.headingsmall{
+    margin: 0;
+    font-size: 0.867em;
+    color: rgb(35, 35, 35);
+    padding: 2% 0%;
+}
+.btn{
+    margin-top: 5%;
+}
+.resetbtn{
+    background-color: var(--white);
+    outline: none;
+    border: 1px solid lightgray;
+    padding: 2% 10%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.resetbtn:hover{
+    border: 1px solid#4B9CD3;
+}
+.submitbtn{
+    background-color: #318CE7;
+    outline: none;
+    color: var(--white);
+    border: 1px solid #318CE7;
+    border-radius: 5px;
+    padding: 2% 10%;
+    margin-left: 5%;
+    cursor: pointer;
+}
+.submitbtn:hover{
+    background-color: #0CAFFF;
+    color: var(--black);
+}

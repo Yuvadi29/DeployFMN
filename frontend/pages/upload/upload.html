@@ -1,0 +1,98 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block style-links %}
+
+<link rel="stylesheet" href="{% static 'CSS/upload/upload_page.css' %}">
+
+
+{% endblock style-links %}
+   
+
+
+{% block  content %}
+
+<div class="page">
+    <div class="page-container">
+        <form action="#">
+            <div class="title">
+                <p class="headingsmall">File name</p>
+                <input type="text" class="input" placeholder="Title" required>
+            </div>
+            <div class="disc">
+                <p class="headingsmall">Description</p>
+                <input type="text" class ="input"placeholder="Write a detailed description" required>
+                <h4>You can edit this information later</h4>
+            </div>
+            <div class="category">
+                <p class="headingsmall">Category</p>
+                <input type="text" id="input-category" class="input" placeholder="Search for category" onclick="dropdown()" onkeyup="filter()" required>
+                <div class="droplist" id="droplist" >
+                    <p onclick="select('Machine Learning')"> Machine Learning</p>
+                    <p onclick="select('Java')">Java</p>
+                    <p onclick="select('Python')">Python</p>
+                    <p onclick="select('Data Science')">DataScience</p>
+                </div>
+                
+            </div>
+            <div class="tags">
+                <p class="headingsmall">Tags</p>
+                <input type="text" class="input" placeholder="Tags" required>
+            </div>
+            <div class="file">
+                <p class="headingsmall">Attachments</p>
+                <div class="inputLabel">
+                    <input class="fileinput" id="fileinput" name="fileinput" type="file"  required>
+                    <lable for="fileinput"   class="browseFile"><svg xmlns="http://www.w3.org/2000/svg"   preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M5 10h4v6h6v-6h4l-7-7l-7 7zm0 8v2h14v-2H5z"/></svg>
+                        <p>Browse File</p>
+                        <span>Accepted file type: Jpg, Pdf, Jpg</span>
+                    </lable>
+                </div>
+            </div>
+            <div class="btn">
+                <input type="reset" value="Reset" class="resetbtn">
+                <input type="submit" value="Upload" class="submitbtn">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+
+
+<script>
+    function dropdown(){
+        document.getElementById("droplist").classList.toggle("show");
+    }
+    function filter(){
+        var input, filter, ul, li, p, i;
+            input = document.getElementById("input-category");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("droplist");
+            p = div.getElementsByTagName("p");
+            
+            for (i = 0; i < p.length; i++) 
+            {
+                txtValue = p[i].textContent || p[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) 
+                {
+                 p[i].style.display = "";
+                } else {
+                 p[i].style.display = "none";
+                }
+            }
+    }
+    function select(e){
+        var input = document.getElementById("input-category");
+        input.value = e;
+        // console.log("category selected : "+ input.value);
+    }
+</script>
+
+
+{% endblock scripts %}   

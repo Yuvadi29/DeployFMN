@@ -1,0 +1,168 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 70px 100px;
+    background:white;
+	box-shadow: 0 -5px 10px rgba(164, 164, 164, 0.129);
+    display: flex;
+    justify-content: flex-end;
+    align-items:bottom;
+    bottom: 0;
+    flex-wrap: wrap;
+    z-index: 10;
+}
+
+footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+footer .footer-container .sec-about {
+    margin-right: 30px;
+}
+
+footer .footer-container .sec-about
+{
+    width: 40%;
+}
+footer .footer-container h2
+{
+    position: relative;
+    color: rgb(26, 69, 87);;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+footer .footer-container h2:before
+{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #f00;
+}
+footer p
+{
+    color: #999;
+}
+.sci
+{
+    margin-top: 20px;
+    display: flex;
+}
+.sci li 
+{
+    list-style: none;
+}
+.sci li a
+{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.sci li .fa-link-twitter:hover
+{
+    background: #1DA1f2;
+} 
+.sci li .fa-link-instagram:hover{
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+}
+.sci li .fa-link-facebook:hover
+{
+    background: #385490;
+} 
+
+.sci li a .fa
+{
+    color: var(--white);
+    font-size: 20px;
+}
+.sec-quicklinks
+{
+    position: relative;
+    width: 25%;
+}
+.sec-quicklinks ul li
+{
+    list-style: none;
+}
+.sec-quicklinks ul li a
+{
+     color: #999;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block; 
+}
+.sec-quicklinks ul li a:hover
+{
+    color: #1A4557;
+}
+.sec-contact
+{
+    width: calc(35% - 60px);
+    margin-right:0 !important;
+}
+.sec-contact .info
+{
+    position: relative;
+
+}
+.sec-contact .info li
+{
+    display: flex;
+    margin-bottom: 16px;
+}
+.sec-contact .info li span:nth-child(1)
+{
+    color: #1A4557;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.sec-contact .info li span
+{
+    color: #999;
+}
+.sec-contact .info li a
+{
+    color: #999;
+    text-decoration: none;
+}
+@media (max-width: 991px)
+{
+    footer
+    {
+        padding: 40px;
+    }
+    footer .footer-container
+    {
+        flex-direction: column;
+    }
+    footer .footer-container .sec
+    {
+        margin-right: 0;
+        margin-bottom: 40px;
+    } 
+    footer .footer-container .sec-about,
+    .sec-quicklinks,.sec-contact
+    {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+

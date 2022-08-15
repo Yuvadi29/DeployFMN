@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/commonforall.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/components/navbar.css' %}" />
+
+   <!-- For social links - fontawesome symbols -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+       
+    </style>
+
+</head>
+<body>
+    
+    
+    <nav>
+
+        <div class="logo">
+            <a href="/">
+                <img src="{% static 'media/svg/blue_logo.svg' %}" alt="">
+            </a>
+        </div>
+
+        <div class="search-box flex">
+            {% if current_user != None %}
+            <input class="search-input" onkeypress="return triggerEnter('search_query')" id="search_query" placeholder="Search" type="text" >
+            <div class="search-icon-container">
+                <button class="search-icon" onclick="searchQuery('search_query')">
+                    <i class="fa fa-search "></i>
+                </button>
+            </div>
+            {% endif %}
+        </div>
+        <div class="nav-links-container">
+
+            <div class="user-links flex">
+
+                <div class="nav-links hide-on-small-screen"><a href="/"><i class="fa fa-home fa-lg"></i></a></div>
+                {% if current_user == None %}
+                    <div class="nav-links hide-on-small-screen"><a href="/about"><i class="fa fa-info "></i></a></div>
+                    <div class="nav-links hide-on-small-screen"><a href="/contact"><i class="fa fa-headset"></i></a></div>
+                {% else %}
+                    <div class="nav-links"><a href=""><i class="fa fa-bell"></i></a></div>
+                    <div class="nav-links display-on-small-screen"><a href="/logout"><i class="fa fa-sign-out"></i></a></div>
+                {% endif %}
+                
+
+            </div>
+            
+
+            {% if current_user == None %}
+
+            <div class="login-signup-container hide-on-small-screen flex">
+                <button class="signup">
+                    <a href="/signuppage">Signup</a>
+                </button>
+                
+                <button class="login">
+                    <a href="/loginpage">Login</a>
+                </button>
+            </div>
+
+            {% endif %}
+
+            {% if current_user != None %}
+            <div class="profile-container flex hide-on-small-screen">
+                <div class="user-profile">
+
+
+                    <div class="nav-user-profile color-1" onclick="toggleDropdownLinks()">
+                        <i class="fa fa-user "></i> &nbsp;<span class=""> {{name}} </span> &nbsp; </span>
+                        <i id="Dropdown_angle_down" class="fa fa-angle-down"></i>
+                    </div>
+                    <div class="dropdown-links height-0" id="dropdown_links">
+                        
+                        <div class="link"><a href="/"> <i class="fa fa-user"></i> Profile</a></div>
+                        <div class="link"><a href="/searchPage"> <i class="fa fa-search"></i> Search</a></div>
+                        <div class="link"><a href="/upload_page"> <i class="fa fa-upload"></i> Upload</a></div>
+                        {% if is_admin %} 
+                        <hr>
+                        <div class="link"><a href="/adminfeed"> <i class="fa fa-user"></i> Admin</a></div>
+                        {% endif %}
+
+                        <hr>
+                        <div class="link"><a href="/logout"> <i class="fa fa-sign-out"></i> Logout</a></div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            {% endif %}
+
+        </div>
+
+    </nav>
+
+    <div id="down_nav" class="down-nav-container display-on-small-screen text-center fade-in-forwards">
+        <div class="down-nav">
+                <a href="/"><div id="active_link" class="links"><i class="fa fa-home"></i><div class="font-size-12">Home</div></div></a>
+            {% if current_user == None %}
+                <a href="/about"><div class="links" title="About Us"><i class="fa fa-info"></i><div class="font-size-12">About</div></div></a>
+                <a href="/contact"><div class="links" title="Contact Us"><i class="fa fa-headset"></i><div class="font-size-12">Contact</div></div></a>
+                <a href="/loginpage"><div class="links" title="Log In"><i class="fa fa-sign-in"></i><div class="font-size-12">LogIn</div></div></a>
+            {% else %}
+                <a href="/searchPage"><div class="links"><i class="fa fa-search"></i><div class="font-size-12">Explore</div></div></a>
+                <a href="/upload_page"><div class="links"><i class="fa fa-plus-square-o"></i><div class="font-size-12">Upload</div></div></a>
+                <a href="/profile"><div class="links"><i class="fa fa-user"></i><div class="font-size-12">Profile</div></div></a>
+                {% if is_admin %} 
+                    <a href="/adminfeed"><div class="links"><i class="fa fa-key"></i><div class="font-size-12">Admin</div></div></a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+  
+
+    <script src="{% static 'javascript/header.js' %}"></script>
+    <script src="{% static 'javascript/search_query.js' %}"></script>
+
+</body>
+</html> 

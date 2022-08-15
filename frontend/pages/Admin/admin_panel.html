@@ -1,0 +1,185 @@
+{% extends "base_template.html" %}
+{% load static %}
+
+{% block style-links %}
+
+<link rel="stylesheet" href="{% static 'CSS/Admin/admin_panel.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/Admin/admin_panel_table.css' %}">
+
+{% endblock style-links %}
+   
+
+
+{% block  content %}
+            
+<input type="hidden" name="CSRF_token" value="{{csrf_token}}" id="token ">
+<div class="admin-analytics-wrapper">
+
+    <div class="admin-analytics-container">
+            
+        <div class="analytic-count-container no-of-users">
+            <div class="container-head flex-container">
+                <div class="count-container">
+                    <div class="analytics-count">
+                        <h3>{{user_count}}</h3>
+                    </div>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-users "></i>
+                </div>
+            </div>
+            <br>
+            <div class="title-container flex-container">
+                <div class="title">
+                    <h4>Total Users</h4>
+                </div>
+                <div class="right-arrow">
+                    <a><i class="fa fa-angle-right fa-2x "></i></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="analytic-count-container no-of-uploads">
+            <div class="container-head flex-container">
+                <div class="count-container">
+                    <div class="analytics-count">
+                        <h3>{{file_count}}</h3>
+                    </div>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-upload "></i>
+                </div>
+            </div>
+            <br>
+            <div class="title-container flex-container">
+                <div class="title">
+                    <h4>Total uploads</h4>
+                </div>
+                <div class="right-arrow">
+                    <a><i class="fa fa-angle-right fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+        <div class="analytic-count-container no-of-uploads">
+            <div class="container-head flex-container">
+                <div class="count-container">
+                    <div class="analytics-count">
+                        <h3>{{report_count}}</h3>
+                    </div>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-user-times "></i>
+                </div>
+            </div>
+            <br>
+            <div class="title-container flex-container">
+                <div class="title">
+                    <h4>Total Reports</h4>
+                </div>
+                <div class="right-arrow">
+                    <a><i class="fa fa-angle-right fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        
+        <div class="analytic-count-container no-of-uploads">
+            <div class="container-head flex-container">
+                <div class="count-container">
+                    <div class="analytics-count">
+                        <h3>123</h3>
+                    </div>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-ban "></i>
+                </div>
+            </div>
+            <br>
+            <div class="title-container flex-container">
+                <div class="title">
+                    <h4>Total Banned Users</h4>
+                </div>
+                <div class="right-arrow">
+                    <a><i class="fa fa-angle-right fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="user-details-table">
+    
+    <div class="table-search-box">
+		<input type="text" name="search" id="searchTable" placeholder="Search..."/>
+	</div>   
+
+	<div class="table-body">
+	<table class="table">
+     <thead>
+     	<tr>
+        <th>User_ID</th>
+		 <th>Username</th>
+         <th>Name</th>
+     	 <th class="sort">Gender</th>
+     	 <th>Mail_ID</th>
+     	 <th>Phone Number</th>
+		 <th>No of uploads</th>
+		 <th>Date</th>
+		 <th>Action</th>
+		 <th>Make   </th>
+     	</tr>
+     </thead>
+     <tbody>
+
+
+        {% for user in list_of_users %}
+     	<tr>
+            <td data-label="User_ID" id="userID">{{user.pk}}</td>
+     	    <td data-label="Username" id="username"><a href="#">{{user.username}}</a></td>
+     	    <td data-label="Name" id="name">{{user.first_name}} {{user.last_name}}</td>
+      	    <td data-label="Gender">{{user.gender}}</td>
+     	  	<td data-label="Mail_ID">{{user.mail}}</td>
+     	  	<td data-label="Phone Number">{{user.phone}}</td>
+			<td data-label="Uploads">100</td>
+			<td data-label="Date">{{user.timestamp}}</td>
+			<td data-label="Action"><button class="temp">Temp</button><button class="perm">Perm</button></td>
+			<td data-label="Action">
+                <select onchange="changeUserRole(this)" name="user_role" id="user_role">                    
+                    <option value="Faculty"{% if user.is_active %} selected {% endif %}> User</option>
+                    <option value="Faculty"{% if user.is_faculty %} selected {% endif %}> Faculty</option>
+                    <option value="Student" {% if user.is_student %} selected {% endif %}>Student</option>
+                    <option value="Content Writer" {% if user.is_content_writer %} selected {% endif %}>Content Writer</option>
+                    <option value="Admin" {% if user.admin %} selected {% endif %}>Admin</option>
+                    
+                </select>
+            </td>
+     	</tr>
+
+
+         {% endfor %}
+
+     </tbody>
+   </table>
+</div>
+
+{% endblock content %}
+
+
+
+{% block scripts %}
+
+
+<script src="{% static 'javascript/adminPanel.js' %}" ></script>
+
+{% endblock scripts %}   

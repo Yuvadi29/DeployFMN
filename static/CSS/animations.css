@@ -1,0 +1,32 @@
+@keyframes floating {
+    50%   { transform: translate(0, -15px); }   
+    100%  { transform: translate(0, 0px); }
+}
+
+
+@keyframes fade-in {
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+
+@keyframes openclose {
+    0% {
+      width: 0;
+    }
+    5% {
+      width: 0;
+    }
+    15% {
+      width: 15%;
+    }
+    30% {
+      width: 30%;
+    }
+
+    100% {
+      width: 100%;
+    }
+  }
